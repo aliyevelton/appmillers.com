@@ -69,7 +69,7 @@ export default function Home() {
           <span className="brand-logo-wrap">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/appmillers-logo.png"
+              src="./appmillers-logo.png"
               alt="AppMillers"
               className="brand-logo"
               width={140}

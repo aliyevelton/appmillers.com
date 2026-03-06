@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Join the AppMillers Skool community for AI Agents, Automation & Vibe Coding to learn faster, build real workflows, and stay accountable with other builders.",
   icons: {
-    icon: "/appmillers-logo.png",
+    icon: "./appmillers-logo.png",
   },
 };
 
