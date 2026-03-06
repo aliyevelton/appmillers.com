@@ -201,7 +201,7 @@ export default function Home() {
           <div className="preview-card">
             <div className="preview-frame">
               <Image
-                src="/community-preview.png"
+                src="./community-preview.png"
                 alt="Skool community preview for AI Agents, Automation & Vibe Coding"
                 width={1024}
                 height={576}
