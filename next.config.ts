@@ -16,11 +16,27 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   basePath: basePath || undefined,
   assetPrefix: assetPrefix || undefined,
+  // With basePath, Next still emits files at out/ root; use distDir so export lives under out/<repo> for GH Pages
+  distDir: isProjectSite ? `out/${repoName}` : ".next",
   images: {
     unoptimized: true,
   },
   turbopack: {
     root: process.cwd(),
+  },
+  // Allow fonts when served from same origin / assetPrefix (avoids CSP blocking on GH Pages)
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: "font-src 'self' data: https:;",
+          },
+        ],
+      },
+    ];
   },
 };
 
