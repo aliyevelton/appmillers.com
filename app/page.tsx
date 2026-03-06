@@ -1,5 +1,6 @@
 import Image from "next/image";
 import RotatingHeadline from "../components/RotatingHeadline";
+import HeroCtaWithArrow from "../components/HeroCtaWithArrow";
 
 const skoolCommunityUrl = "https://www.skool.com/your-community";
 
@@ -10,49 +11,16 @@ const navLinks = [
   { label: "Community", href: skoolCommunityUrl },
 ];
 
-const proofPoints = [
-  "Focused community around AI agents, automation, and vibe coding",
-  "Clear path from learning concepts to building practical workflows",
-  "One place for updates, questions, wins, and useful resources",
-];
-
 const communityBenefits = [
-  {
-    title: "Learn with momentum",
-    description:
-      "Get a home base that keeps you moving with practical discussions, fresh resources, and clear next steps.",
-  },
-  {
-    title: "Build real automations",
-    description:
-      "Turn AI ideas into working systems with examples, feedback, and a community that is focused on execution.",
-  },
-  {
-    title: "Stay close to the course",
-    description:
-      "The community is designed specifically for AI Agents, Automation & Vibe Coding, so everything feels aligned to the course.",
-  },
+  { title: "Learn together", description: "Discussions, resources, and real answers." },
+  { title: "Build real things", description: "Go from ideas to working automations." },
+  { title: "Stay on track", description: "Accountability and progress in one place." },
 ];
 
 const featureCards = [
-  {
-    eyebrow: "Inside the community",
-    title: "Discussion that actually helps you build",
-    description:
-      "Ask questions, share progress, and learn from other members working on AI workflows and agent-powered ideas.",
-  },
-  {
-    eyebrow: "Practical learning",
-    title: "Resources you can use immediately",
-    description:
-      "Find updates, examples, and useful materials that help you go from watching to implementing faster.",
-  },
-  {
-    eyebrow: "Better accountability",
-    title: "A focused place to keep going",
-    description:
-      "Instead of learning alone, join a space that encourages action, consistency, and visible progress.",
-  },
+  { title: "Focused discussions", description: "Ask, share, and learn from builders." },
+  { title: "Practical resources", description: "Examples and materials you can use now." },
+  { title: "Visible progress", description: "Track your growth alongside others." },
 ];
 
 const quickStats = [
@@ -102,40 +70,17 @@ export default function Home() {
           <RotatingHeadline />
         </div>
 
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <p className="hero-text">
-              Stop learning in scattered places. Join a focused Skool community
-              where builders explore AI agents, practical automations, and modern
-              workflows together.
-            </p>
+        <div className="hero-sub">
+          <p className="hero-text">
+            A focused Skool community where builders learn, share, and ship together.
+          </p>
 
-            <div className="cta-row">
-              <a className="button button-primary" href={skoolCommunityUrl}>
-                Enter the Community
-              </a>
-              <a className="button button-ghost" href="#community">
-                See what&apos;s inside
-              </a>
-            </div>
-
-            <ul className="proof-list">
-              {proofPoints.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="hero-panel">
-            <div className="hero-card hero-card-primary">
-              <span className="mini-label">Built for focused builders</span>
-              <h2>Learn faster with one clear place to ask, watch, share, and build.</h2>
-              <p>
-                The community turns the course into an active environment, not
-                just a passive library.
-              </p>
-            </div>
-          </div>
+          <HeroCtaWithArrow
+            primaryHref={skoolCommunityUrl}
+            primaryLabel="Enter the Community"
+            secondaryHref="#community"
+            secondaryLabel="See what's inside"
+          />
         </div>
 
         <div className="hero-card-block">
@@ -152,12 +97,7 @@ export default function Home() {
 
       <section className="community-section" id="community">
         <div className="section-heading">
-          <span className="eyebrow">Why join the community</span>
-          <h2>A better home for the course experience.</h2>
-          <p>
-            This is where the course becomes more useful: questions get answered,
-            ideas get sharpened, and progress feels easier to maintain.
-          </p>
+          <h2>Why this community?</h2>
         </div>
 
         <div className="benefit-grid">
@@ -171,7 +111,7 @@ export default function Home() {
 
         <div className="section-cta">
           <a className="button button-primary" href={skoolCommunityUrl}>
-            Join the Skool Community
+            Join on Skool
           </a>
         </div>
       </section>
@@ -179,18 +119,11 @@ export default function Home() {
       <section className="inside-section" id="inside">
         <div className="inside-layout">
           <div className="inside-copy">
-            <span className="eyebrow">What you&apos;ll find inside</span>
-            <h2>A clean, focused community designed around action.</h2>
-            <p>
-              The experience is built to help members stay engaged with lessons,
-              conversations, updates, and practical next steps instead of getting
-              lost in clutter.
-            </p>
+            <h2>What&apos;s inside</h2>
 
             <div className="feature-stack">
               {featureCards.map((feature) => (
                 <article className="feature-card" key={feature.title}>
-                  <span>{feature.eyebrow}</span>
                   <h3>{feature.title}</h3>
                   <p>{feature.description}</p>
                 </article>
@@ -202,19 +135,12 @@ export default function Home() {
             <div className="preview-frame">
               <Image
                 src="./community-preview.png"
-                alt="Skool community preview for AI Agents, Automation & Vibe Coding"
+                alt="Skool community preview"
                 width={1024}
                 height={576}
                 className="preview-image"
                 priority
               />
-            </div>
-            <div className="preview-caption">
-              <strong>Skool community preview</strong>
-              <p>
-                A focused environment for members to learn, engage, and build
-                with more consistency.
-              </p>
             </div>
           </div>
         </div>
@@ -222,19 +148,11 @@ export default function Home() {
 
       <section className="final-cta-section" id="join">
         <div className="final-cta-card">
-          <span className="eyebrow">Ready to join?</span>
-          <h2>Step into the community and start building with the right people around you.</h2>
-          <p>
-            If you want AI Agents, Automation & Vibe Coding to become something
-            practical instead of just interesting, this is the place to begin.
-          </p>
+          <h2>Ready to start building?</h2>
 
           <div className="cta-row cta-row-center">
             <a className="button button-primary" href={skoolCommunityUrl}>
-              Go to the Community
-            </a>
-            <a className="button button-ghost" href="#top">
-              Back to top
+              Join the Community
             </a>
           </div>
         </div>
