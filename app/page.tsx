@@ -80,14 +80,12 @@ export default function Home() {
             </p>
           </BlurRise>
 
-          <BlurRise>
-            <HeroCtaWithArrow
+          <HeroCtaWithArrow
             primaryHref={skoolCommunityUrl}
             primaryLabel="Enter the Community"
             secondaryHref="#community"
             secondaryLabel="See what's inside"
           />
-          </BlurRise>
         </div>
 
         <div className="hero-card-block">
