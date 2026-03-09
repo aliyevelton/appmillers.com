@@ -1,6 +1,7 @@
 import Image from "next/image";
 import RotatingHeadline from "../components/RotatingHeadline";
 import HeroCtaWithArrow from "../components/HeroCtaWithArrow";
+import { BlurRise, BlurRiseList, BlurRiseItem } from "../components/BlurRise";
 
 const skoolCommunityUrl = "https://www.skool.com/your-community";
 
@@ -67,31 +68,37 @@ export default function Home() {
         <div className="hero-background" />
 
         <div className="hero-headline" id="top">
-          <RotatingHeadline />
+          <BlurRise>
+            <RotatingHeadline />
+          </BlurRise>
         </div>
 
         <div className="hero-sub">
-          <p className="hero-text">
-            A focused Skool community where builders learn, share, and ship together.
-          </p>
+          <BlurRise>
+            <p className="hero-text">
+              A focused Skool community where builders learn, share, and ship together.
+            </p>
+          </BlurRise>
 
-          <HeroCtaWithArrow
+          <BlurRise>
+            <HeroCtaWithArrow
             primaryHref={skoolCommunityUrl}
             primaryLabel="Enter the Community"
             secondaryHref="#community"
             secondaryLabel="See what's inside"
           />
+          </BlurRise>
         </div>
 
         <div className="hero-card-block">
-          <div className="hero-card hero-card-stats hero-card-stats-centered">
+          <BlurRiseList className="hero-card hero-card-stats hero-card-stats-centered">
             {quickStats.map((stat) => (
-              <div key={stat.label}>
+              <BlurRiseItem key={stat.label}>
                 <strong>{stat.value}</strong>
                 <span>{stat.label}</span>
-              </div>
+              </BlurRiseItem>
             ))}
-          </div>
+          </BlurRiseList>
         </div>
       </section>
 
@@ -100,14 +107,14 @@ export default function Home() {
           <h2>Why this community?</h2>
         </div>
 
-        <div className="benefit-grid">
+        <BlurRiseList className="benefit-grid">
           {communityBenefits.map((benefit) => (
-            <article className="benefit-card" key={benefit.title}>
+            <BlurRiseItem as="article" className="benefit-card" key={benefit.title}>
               <h3>{benefit.title}</h3>
               <p>{benefit.description}</p>
-            </article>
+            </BlurRiseItem>
           ))}
-        </div>
+        </BlurRiseList>
 
         <div className="section-cta">
           <a className="button button-primary" href={skoolCommunityUrl}>
@@ -121,14 +128,14 @@ export default function Home() {
           <div className="inside-copy">
             <h2>What&apos;s inside</h2>
 
-            <div className="feature-stack">
+            <BlurRiseList className="feature-stack">
               {featureCards.map((feature) => (
-                <article className="feature-card" key={feature.title}>
+                <BlurRiseItem as="article" className="feature-card" key={feature.title}>
                   <h3>{feature.title}</h3>
                   <p>{feature.description}</p>
-                </article>
+                </BlurRiseItem>
               ))}
-            </div>
+            </BlurRiseList>
           </div>
 
           <div className="preview-card">
