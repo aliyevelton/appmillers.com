@@ -1,6 +1,6 @@
 import Image from "next/image";
 import RotatingHeadline from "../components/RotatingHeadline";
-import HeroCtaWithArrow from "../components/HeroCtaWithArrow";
+import HeroCta from "../components/HeroCta";
 import { BlurRise, BlurRiseList, BlurRiseItem } from "../components/BlurRise";
 
 const skoolCommunityUrl = "https://www.skool.com/your-community";
@@ -80,7 +80,7 @@ export default function Home() {
             </p>
           </BlurRise>
 
-          <HeroCtaWithArrow
+          <HeroCta
             primaryHref={skoolCommunityUrl}
             primaryLabel="Enter the Community"
             secondaryHref="#community"
