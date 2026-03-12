@@ -24,12 +24,6 @@ const featureCards = [
   { title: "Visible progress", description: "Track your growth alongside others." },
 ];
 
-const quickStats = [
-  { value: "AI", label: "Agents and workflows" },
-  { value: "24/7", label: "Community access" },
-  { value: "1", label: "Focused place to learn and build" },
-];
-
 export default function Home() {
   return (
     <main className="page-shell">
@@ -47,7 +41,6 @@ export default function Home() {
           </span>
           <div>
             <span>AppMillers</span>
-            <strong>AI Agents, Automation & Vibe Coding</strong>
           </div>
         </a>
 
@@ -60,7 +53,7 @@ export default function Home() {
         </nav>
 
         <a className="button button-secondary" href={skoolCommunityUrl}>
-          Join on Skool
+          Join Now
         </a>
       </header>
 
@@ -86,17 +79,6 @@ export default function Home() {
             secondaryHref="#community"
             secondaryLabel="See what's inside"
           />
-        </div>
-
-        <div className="hero-card-block">
-          <BlurRiseList className="hero-card hero-card-stats hero-card-stats-centered">
-            {quickStats.map((stat) => (
-              <BlurRiseItem key={stat.label}>
-                <strong>{stat.value}</strong>
-                <span>{stat.label}</span>
-              </BlurRiseItem>
-            ))}
-          </BlurRiseList>
         </div>
       </section>
 
