@@ -69,7 +69,7 @@ export default function Home() {
         <div className="hero-sub">
           <BlurRise>
             <p className="hero-text">
-              A focused Skool community where builders learn, share, and ship together.
+              A practical community for builders, creators, and future-ready professionals.
             </p>
           </BlurRise>
 
