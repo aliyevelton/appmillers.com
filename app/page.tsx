@@ -101,19 +101,21 @@ export default function Home() {
             </p>
           </BlurRise>
 
-          <HeroCta
-            primaryHref={skoolCommunityUrl}
-            primaryLabel="Enter the Community"
-            secondaryHref="#community"
-            secondaryLabel="See what's inside"
-          />
+          <BlurRise>
+            <HeroCta
+              primaryHref={skoolCommunityUrl}
+              primaryLabel="Enter the Community"
+              secondaryHref="#community"
+              secondaryLabel="See what's inside"
+            />
+          </BlurRise>
         </div>
       </section>
 
       <section className="community-section" id="community">
-        <div className="section-heading">
+        <BlurRise className="section-heading">
           <h2>Why this community?</h2>
-        </div>
+        </BlurRise>
 
         <BlurRiseList className="benefit-grid">
           {communityBenefits.map((benefit) => (
@@ -124,11 +126,13 @@ export default function Home() {
           ))}
         </BlurRiseList>
 
-        <div className="section-cta">
-          <a className="button button-primary" href={skoolCommunityUrl}>
-            Join Now
-          </a>
-        </div>
+        <BlurRise>
+          <div className="section-cta">
+            <a className="button button-primary" href={skoolCommunityUrl}>
+              Join Now
+            </a>
+          </div>
+        </BlurRise>
       </section>
 
       <section className="courses-section" id="courses">
@@ -160,25 +164,29 @@ export default function Home() {
           ))}
         </BlurRiseList>
 
-        <div className="section-cta">
-          <a
-            className="button button-primary courses-see-all"
-            href={skoolClassroomUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            See All Courses
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </a>
-        </div>
+        <BlurRise>
+          <div className="section-cta">
+            <a
+              className="button button-primary courses-see-all"
+              href={skoolClassroomUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              See All Courses
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </BlurRise>
       </section>
 
       <section className="inside-section" id="inside">
         <div className="inside-layout">
-          <h2 className="inside-title">What&apos;s inside</h2>
+          <BlurRise className="inside-title-wrap">
+            <h2 className="inside-title">What&apos;s inside</h2>
+          </BlurRise>
           <div className="inside-copy">
             <BlurRiseList className="feature-stack">
               {featureCards.map((feature) => (
@@ -189,7 +197,7 @@ export default function Home() {
               ))}
             </BlurRiseList>
           </div>
-          <div className="preview-card">
+          <BlurRise className="preview-card">
             <div className="preview-frame">
               <Image
                 src="./community-preview.png"
@@ -200,12 +208,12 @@ export default function Home() {
                 priority
               />
             </div>
-          </div>
+          </BlurRise>
         </div>
       </section>
 
       <section className="final-cta-section" id="join">
-        <div className="final-cta-card">
+        <BlurRise className="final-cta-card">
           <h2>Ready to start building?</h2>
 
           <div className="cta-row cta-row-center">
@@ -213,7 +221,7 @@ export default function Home() {
               Join the Community
             </a>
           </div>
-        </div>
+        </BlurRise>
       </section>
 
       <footer className="site-footer">

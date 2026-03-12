@@ -411,9 +411,8 @@ img {
   align-items: start;
 }
 
-.inside-layout > .inside-title {
+.inside-layout > .inside-title-wrap {
   grid-column: 1 / -1;
-  margin: 0;
 }
 
 .feature-stack {
