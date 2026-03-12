@@ -50,6 +50,7 @@ img {
 
 .hero-section,
 .community-section,
+.courses-section,
 .inside-section,
 .final-cta-section {
   position: relative;
@@ -74,6 +75,7 @@ img {
 .site-header,
 .section-heading,
 .benefit-grid,
+.courses-grid,
 .section-cta,
 .inside-layout,
 .final-cta-card {
@@ -439,6 +441,89 @@ img {
   height: auto;
 }
 
+/* ── Courses section ── */
+
+.courses-section {
+  padding-top: 8px;
+}
+
+.courses-subtitle {
+  max-width: none;
+  margin: 12px auto 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.course-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-strong);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 64px rgba(31, 56, 112, 0.16);
+}
+
+.course-cover {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.course-icon {
+  font-size: 2.8rem;
+  opacity: 0.35;
+  user-select: none;
+  filter: brightness(2);
+}
+
+.course-body {
+  padding: 20px 22px 24px;
+}
+
+.course-body h3 {
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.course-body p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.courses-see-all {
+  gap: 8px;
+}
+
+.courses-see-all svg {
+  transition: transform 0.2s ease;
+}
+
+.courses-see-all:hover svg {
+  transform: translateX(4px);
+}
+
 .final-cta-card {
   padding: 36px;
   text-align: center;
@@ -497,6 +582,10 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .courses-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hero-headline h1 {
     max-width: 100%;
   }
@@ -520,9 +609,14 @@ img {
 @media (max-width: 640px) {
   .hero-section,
   .community-section,
+  .courses-section,
   .inside-section,
   .final-cta-section {
     padding: 20px 16px 64px;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
   }
 
   .brand {

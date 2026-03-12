@@ -3,10 +3,11 @@ import RotatingHeadline from "../components/RotatingHeadline";
 import HeroCta from "../components/HeroCta";
 import { BlurRise, BlurRiseList, BlurRiseItem } from "../components/BlurRise";
 
-const skoolCommunityUrl = "https://www.skool.com/your-community";
+const skoolCommunityUrl = "https://www.skool.com/ai-agents-automatin-vibecoding";
+const skoolClassroomUrl = "https://www.skool.com/ai-agents-automatin-vibecoding/classroom";
 
 const navLinks = [
-  { label: "Courses", href: "#" },
+  { label: "Courses", href: "#courses" },
   { label: "Newsletter", href: "#" },
   { label: "Udemy Coupons", href: "#" },
   { label: "Community", href: skoolCommunityUrl },
@@ -16,6 +17,33 @@ const communityBenefits = [
   { title: "Learn together", description: "Discussions, resources, and real answers." },
   { title: "Build real things", description: "Go from ideas to working automations." },
   { title: "Stay on track", description: "Accountability and progress in one place." },
+];
+
+const courses = [
+  {
+    title: "AI Agents using OpenAI SDK",
+    description: "Build agentic AI solutions with Python and the OpenAI SDK.",
+    gradient: "linear-gradient(135deg, #0fa47f 0%, #1a1a2e 100%)",
+    icon: "✦",
+  },
+  {
+    title: "AI Agents using CrewAI",
+    description: "Orchestrate autonomous AI agent crews that collaborate on complex tasks.",
+    gradient: "linear-gradient(135deg, #6c3ec1 0%, #1a1a2e 100%)",
+    icon: "⚙",
+  },
+  {
+    title: "LangChain",
+    description: "Chain LLM calls, tools, and memory into powerful AI applications.",
+    gradient: "linear-gradient(135deg, #1e6b3a 0%, #1a1a2e 100%)",
+    icon: "🔗",
+  },
+  {
+    title: "LangGraph",
+    description: "Design stateful, multi-actor AI workflows with graph-based orchestration.",
+    gradient: "linear-gradient(135deg, #2563eb 0%, #1a1a2e 100%)",
+    icon: "◈",
+  },
 ];
 
 const featureCards = [
@@ -98,7 +126,52 @@ export default function Home() {
 
         <div className="section-cta">
           <a className="button button-primary" href={skoolCommunityUrl}>
-            Join on Skool
+            Join Now
+          </a>
+        </div>
+      </section>
+
+      <section className="courses-section" id="courses">
+        <div className="section-heading">
+          <BlurRise>
+            <h2>Explore our courses</h2>
+          </BlurRise>
+          <BlurRise delay={0.1}>
+            <p className="courses-subtitle">
+              Hands-on, project-driven courses to take you from concept to working AI agent.
+            </p>
+          </BlurRise>
+        </div>
+
+        <BlurRiseList className="courses-grid">
+          {courses.map((course) => (
+            <BlurRiseItem as="article" className="course-card" key={course.title}>
+              <div
+                className="course-cover"
+                style={{ background: course.gradient }}
+              >
+                <span className="course-icon">{course.icon}</span>
+              </div>
+              <div className="course-body">
+                <h3>{course.title}</h3>
+                <p>{course.description}</p>
+              </div>
+            </BlurRiseItem>
+          ))}
+        </BlurRiseList>
+
+        <div className="section-cta">
+          <a
+            className="button button-primary courses-see-all"
+            href={skoolClassroomUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            See All Courses
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
           </a>
         </div>
       </section>
