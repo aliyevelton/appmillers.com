@@ -152,6 +152,54 @@ img {
   color: var(--text);
 }
 
+/* Hamburger button – hidden on desktop */
+.header-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-strong);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.header-menu-btn:hover {
+  background: var(--surface-muted);
+}
+
+.header-menu-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 20px;
+}
+
+.header-menu-icon span {
+  display: block;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.site-header.nav-open .header-menu-icon span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.site-header.nav-open .header-menu-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.nav-open .header-menu-icon span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 .hero-headline {
   position: relative;
   z-index: 1;
@@ -281,7 +329,7 @@ img {
 }
 
 .button-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, #4e8dff 100%);
+  background: var(--primary-dark);
   color: #ffffff;
   box-shadow: 0 18px 30px rgba(47, 107, 255, 0.28);
 }
@@ -297,6 +345,115 @@ img {
   color: var(--text);
 }
 
+/* Interactive hover button (link with expanding-dot + slide effect) */
+.interactive-hover-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  min-width: 180px;
+  padding: 0 24px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  overflow: hidden;
+  background: var(--primary-dark);
+  box-shadow: 0 18px 30px rgba(47, 107, 255, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.interactive-hover-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 36px rgba(47, 107, 255, 0.34);
+}
+
+.interactive-hover-btn__dot {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.interactive-hover-btn__dot[data-hovered="true"] {
+  transform: translateY(-50%) scale(80);
+}
+
+.interactive-hover-btn__label {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.hero-sub .interactive-hover-btn__label {
+  margin-left: 20px;
+}
+
+/* Hero: opaque white fill so blue base doesn't show through on hover */
+.hero-sub .interactive-hover-btn__dot {
+  background: #ffffff;
+}
+
+/* Hero button: overlay text dark so readable on white expanded dot */
+.hero-sub .interactive-hover-btn__overlay {
+  color: var(--text);
+}
+
+.interactive-hover-btn__label[data-hovered="true"] {
+  transform: translateX(24px);
+  opacity: 0;
+}
+
+.interactive-hover-btn__overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text);
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.interactive-hover-btn__overlay[data-hovered="true"] {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Nav variant: match header background by default; blue fill is from expanding dot only */
+.interactive-hover-btn.header-join {
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--text);
+  border-color: var(--border);
+  box-shadow: 0 10px 32px rgba(16, 32, 58, 0.05);
+}
+
+.interactive-hover-btn.header-join .interactive-hover-btn__dot {
+  background: var(--primary-dark);
+}
+
+.interactive-hover-btn.header-join .interactive-hover-btn__overlay {
+  color: #ffffff;
+}
+
+.interactive-hover-btn.header-join:hover {
+  box-shadow: 0 22px 36px rgba(47, 107, 255, 0.34);
+}
 
 .hero-card,
 .benefit-card,
@@ -485,11 +642,14 @@ img {
   overflow: hidden;
 }
 
-.course-icon {
-  font-size: 2.8rem;
-  opacity: 0.35;
-  user-select: none;
-  filter: brightness(2);
+.course-cover-img {
+  object-fit: cover;
+}
+
+.course-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
 .course-body {
@@ -593,16 +753,52 @@ img {
 @media (max-width: 840px) {
   .site-header {
     flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
+    justify-content: space-between;
+    text-align: left;
+    border-radius: 24px;
+    padding: 12px 16px;
+    margin-left: 24px;
+    margin-right: 24px;
   }
 
-  .header-links {
+  .header-menu-btn {
+    display: flex;
+    order: 2;
+  }
+
+  .header-links,
+  .header-join {
+    display: none;
+  }
+
+  .site-header.nav-open .header-links {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    justify-content: center;
     order: 3;
+    gap: 4px;
+    padding-top: 16px;
+    margin-top: 8px;
+    border-top: 1px solid var(--border);
   }
 
+  .site-header.nav-open .header-links a {
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 1rem;
+  }
+
+  .site-header.nav-open .header-links a:hover {
+    background: var(--surface-muted);
+  }
+
+  .site-header.nav-open .header-join {
+    display: inline-flex;
+    width: 100%;
+    order: 4;
+    justify-content: center;
+    margin-top: 12px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -618,19 +814,15 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .brand {
-    width: 100%;
-    justify-content: center;
-  }
-
   .site-header {
-    padding: 16px;
+    padding: 12px 16px;
     border-radius: 24px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 
   .header-links {
-    gap: 18px;
-    flex-wrap: wrap;
+    gap: 12px;
   }
 
   .hero-card,

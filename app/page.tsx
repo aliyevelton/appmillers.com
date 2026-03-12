@@ -1,6 +1,8 @@
 import Image from "next/image";
 import RotatingHeadline from "../components/RotatingHeadline";
 import HeroCta from "../components/HeroCta";
+import Header from "../components/Header";
+import InteractiveHoverButton from "../components/ui/interactive-hover-button";
 import { BlurRise, BlurRiseList, BlurRiseItem } from "../components/BlurRise";
 
 const skoolCommunityUrl = "https://www.skool.com/ai-agents-automatin-vibecoding";
@@ -23,26 +25,22 @@ const courses = [
   {
     title: "AI Agents using OpenAI SDK",
     description: "Build agentic AI solutions with Python and the OpenAI SDK.",
-    gradient: "linear-gradient(135deg, #0fa47f 0%, #1a1a2e 100%)",
-    icon: "✦",
+    image: "./openai.png",
   },
   {
     title: "AI Agents using CrewAI",
     description: "Orchestrate autonomous AI agent crews that collaborate on complex tasks.",
-    gradient: "linear-gradient(135deg, #6c3ec1 0%, #1a1a2e 100%)",
-    icon: "⚙",
+    image: "./crewai.png",
   },
   {
     title: "LangChain",
     description: "Chain LLM calls, tools, and memory into powerful AI applications.",
-    gradient: "linear-gradient(135deg, #1e6b3a 0%, #1a1a2e 100%)",
-    icon: "🔗",
+    image: "./langchain.png",
   },
   {
     title: "LangGraph",
     description: "Design stateful, multi-actor AI workflows with graph-based orchestration.",
-    gradient: "linear-gradient(135deg, #2563eb 0%, #1a1a2e 100%)",
-    icon: "◈",
+    image: "./langgraph.png",
   },
 ];
 
@@ -55,35 +53,7 @@ const featureCards = [
 export default function Home() {
   return (
     <main className="page-shell" id="top">
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="AppMillers home">
-          <span className="brand-logo-wrap">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="./appmillers-logo.png"
-              alt="AppMillers"
-              className="brand-logo"
-              width={140}
-              height={44}
-            />
-          </span>
-          <div>
-            <span>AppMillers</span>
-          </div>
-        </a>
-
-        <nav className="header-links" aria-label="Primary">
-          {navLinks.map((link) => (
-            <a key={link.label} href={link.href}>
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <a className="button button-secondary" href={skoolCommunityUrl}>
-          Join Now
-        </a>
-      </header>
+      <Header navLinks={navLinks} skoolCommunityUrl={skoolCommunityUrl} />
 
       <section className="hero-section">
         <div className="hero-background" />
@@ -128,9 +98,11 @@ export default function Home() {
 
         <BlurRise>
           <div className="section-cta">
-            <a className="button button-primary" href={skoolCommunityUrl}>
-              Join Now
-            </a>
+            <InteractiveHoverButton
+              href={skoolCommunityUrl}
+              text="Join Now"
+              external
+            />
           </div>
         </BlurRise>
       </section>
@@ -150,16 +122,21 @@ export default function Home() {
         <BlurRiseList className="courses-grid">
           {courses.map((course) => (
             <BlurRiseItem as="article" className="course-card" key={course.title}>
-              <div
-                className="course-cover"
-                style={{ background: course.gradient }}
-              >
-                <span className="course-icon">{course.icon}</span>
-              </div>
-              <div className="course-body">
-                <h3>{course.title}</h3>
-                <p>{course.description}</p>
-              </div>
+              <a href={skoolClassroomUrl} target="_blank" rel="noopener noreferrer" className="course-link">
+                <div className="course-cover">
+                  <Image
+                    src={course.image}
+                    alt={course.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 25vw"
+                    className="course-cover-img"
+                  />
+                </div>
+                <div className="course-body">
+                  <h3>{course.title}</h3>
+                  <p>{course.description}</p>
+                </div>
+              </a>
             </BlurRiseItem>
           ))}
         </BlurRiseList>

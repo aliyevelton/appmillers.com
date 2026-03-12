@@ -1,5 +1,7 @@
 "use client";
 
+import InteractiveHoverButton from "./ui/interactive-hover-button";
+
 type HeroCtaProps = {
   primaryHref: string;
   primaryLabel: string;
@@ -15,9 +17,11 @@ export default function HeroCta({
 }: HeroCtaProps) {
   return (
     <div className="cta-row cta-row-center">
-      <a className="button button-primary" href={primaryHref}>
-        {primaryLabel}
-      </a>
+      <InteractiveHoverButton
+        href={primaryHref}
+        text={primaryLabel}
+        external
+      />
       <a className="button button-ghost" href={secondaryHref}>
         {secondaryLabel}
       </a>
