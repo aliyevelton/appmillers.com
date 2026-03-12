@@ -26,7 +26,7 @@ const featureCards = [
 
 export default function Home() {
   return (
-    <main className="page-shell">
+    <main className="page-shell" id="top">
       <header className="site-header">
         <a className="brand" href="#top" aria-label="AppMillers home">
           <span className="brand-logo-wrap">
@@ -60,7 +60,7 @@ export default function Home() {
       <section className="hero-section">
         <div className="hero-background" />
 
-        <div className="hero-headline" id="top">
+        <div className="hero-headline">
           <BlurRise>
             <RotatingHeadline />
           </BlurRise>
@@ -105,9 +105,8 @@ export default function Home() {
 
       <section className="inside-section" id="inside">
         <div className="inside-layout">
+          <h2 className="inside-title">What&apos;s inside</h2>
           <div className="inside-copy">
-            <h2>What&apos;s inside</h2>
-
             <BlurRiseList className="feature-stack">
               {featureCards.map((feature) => (
                 <BlurRiseItem as="article" className="feature-card" key={feature.title}>
@@ -117,7 +116,6 @@ export default function Home() {
               ))}
             </BlurRiseList>
           </div>
-
           <div className="preview-card">
             <div className="preview-frame">
               <Image
