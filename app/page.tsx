@@ -42,6 +42,26 @@ const courses = [
     description: "Design stateful, multi-actor AI workflows with graph-based orchestration.",
     image: "./langgraph.png",
   },
+  {
+    title: "n8n",
+    description: "Build and automate workflows with the open-source n8n platform.",
+    image: "./n8n.png",
+  },
+  {
+    title: "Prompt Engineering",
+    description: "Master prompts that get the best results from LLMs and AI tools.",
+    image: "./prompt-engineering.png",
+  },
+  {
+    title: "Vibe Coding",
+    description: "Code with AI assistance and ship faster with modern workflows.",
+    image: "./vibe-coding.png",
+  },
+  {
+    title: "AI For Leaders and Founders",
+    description: "Strategic AI adoption and decision-making for leadership.",
+    image: "./ai-for-leaders.png",
+  },
 ];
 
 const featureCards = [
