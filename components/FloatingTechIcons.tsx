@@ -11,10 +11,10 @@ export type FloatingTechIcon = {
 };
 
 const defaultIcons: FloatingTechIcon[] = [
-  { src: "/openai-transparent.png", alt: "OpenAI", label: "OpenAI", position: { x: "10%", y: "18%" } },
-  { src: "/crewai-transparent.png", alt: "CrewAI", label: "CrewAI", position: { x: "14%", y: "58%" } },
-  { src: "/langchain-transparent.png", alt: "LangChain", label: "LangChain", position: { x: "85%", y: "22%" } },
-  { src: "/n8n-transparent.png", alt: "n8n", label: "n8n", position: { x: "74%", y: "62%" } },
+  { src: "./openai-transparent.png", alt: "OpenAI", label: "OpenAI", position: { x: "10%", y: "18%" } },
+  { src: "./crewai-transparent.png", alt: "CrewAI", label: "CrewAI", position: { x: "14%", y: "58%" } },
+  { src: "./langchain-transparent.png", alt: "LangChain", label: "LangChain", position: { x: "85%", y: "22%" } },
+  { src: "./n8n-transparent.png", alt: "n8n", label: "n8n", position: { x: "74%", y: "62%" } },
 ];
 
 type FloatingTechIconsProps = {
