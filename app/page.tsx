@@ -3,6 +3,7 @@ import RotatingHeadline from "../components/RotatingHeadline";
 import HeroCta from "../components/HeroCta";
 import Header from "../components/Header";
 import InteractiveHoverButton from "../components/ui/interactive-hover-button";
+import CoursesSection from "../components/CoursesSection";
 import { BlurRise, BlurRiseList, BlurRiseItem } from "../components/BlurRise";
 
 const skoolCommunityUrl = "https://www.skool.com/ai-agents-automatin-vibecoding";
@@ -13,12 +14,6 @@ const navLinks = [
   { label: "Newsletter", href: "#" },
   { label: "Udemy Coupons", href: "#" },
   { label: "Community", href: skoolCommunityUrl },
-];
-
-const communityBenefits = [
-  { title: "Learn together", description: "Discussions, resources, and real answers." },
-  { title: "Build real things", description: "Go from ideas to working automations." },
-  { title: "Stay on track", description: "Accountability and progress in one place." },
 ];
 
 const courses = [
@@ -62,6 +57,21 @@ const courses = [
     description: "Strategic AI adoption and decision-making for leadership.",
     image: "./ai-for-leaders.png",
   },
+  {
+    title: "AutoGen",
+    description: "Build multi-agent conversations and workflows with Microsoft AutoGen.",
+    image: "./AutoGen.png",
+  },
+  {
+    title: "MCP",
+    description: "Model Context Protocol: connect AI to tools and data sources.",
+    image: "./mcp.png",
+  },
+  {
+    title: "How to Succeed In the Era of AI",
+    description: "Thrive in the age of AI with the right skills and mindset.",
+    image: "./success.png",
+  },
 ];
 
 const featureCards = [
@@ -95,36 +105,11 @@ export default function Home() {
             <HeroCta
               primaryHref={skoolCommunityUrl}
               primaryLabel="Enter the Community"
-              secondaryHref="#community"
+              secondaryHref="#courses"
               secondaryLabel="See what's inside"
             />
           </BlurRise>
         </div>
-      </section>
-
-      <section className="community-section" id="community">
-        <BlurRise className="section-heading">
-          <h2>Why this community?</h2>
-        </BlurRise>
-
-        <BlurRiseList className="benefit-grid">
-          {communityBenefits.map((benefit) => (
-            <BlurRiseItem as="article" className="benefit-card" key={benefit.title}>
-              <h3>{benefit.title}</h3>
-              <p>{benefit.description}</p>
-            </BlurRiseItem>
-          ))}
-        </BlurRiseList>
-
-        <BlurRise>
-          <div className="section-cta">
-            <InteractiveHoverButton
-              href={skoolCommunityUrl}
-              text="Join Now"
-              external
-            />
-          </div>
-        </BlurRise>
       </section>
 
       <section className="courses-section" id="courses">
@@ -139,44 +124,11 @@ export default function Home() {
           </BlurRise>
         </div>
 
-        <BlurRiseList className="courses-grid">
-          {courses.map((course) => (
-            <BlurRiseItem as="article" className="course-card" key={course.title}>
-              <a href={skoolClassroomUrl} target="_blank" rel="noopener noreferrer" className="course-link">
-                <div className="course-cover">
-                  <Image
-                    src={course.image}
-                    alt={course.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 25vw"
-                    className="course-cover-img"
-                  />
-                </div>
-                <div className="course-body">
-                  <h3>{course.title}</h3>
-                  <p>{course.description}</p>
-                </div>
-              </a>
-            </BlurRiseItem>
-          ))}
-        </BlurRiseList>
-
-        <BlurRise>
-          <div className="section-cta">
-            <a
-              className="button button-primary courses-see-all"
-              href={skoolClassroomUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              See All Courses
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        </BlurRise>
+        <CoursesSection
+          courses={courses}
+          skoolCommunityUrl={skoolCommunityUrl}
+          skoolClassroomUrl={skoolClassroomUrl}
+        />
       </section>
 
       <section className="inside-section" id="inside">
