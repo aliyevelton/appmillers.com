@@ -56,15 +56,22 @@ export default function Header({ navLinks, skoolCommunityUrl }: HeaderProps) {
         className="header-links"
         aria-label="Primary"
       >
-        {navLinks.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            onClick={closeNav}
-          >
-            {link.label}
-          </a>
-        ))}
+        {navLinks.map((link) => {
+          const isExternal = link.href.startsWith("http");
+          return (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={closeNav}
+              {...(isExternal && {
+                target: "_blank",
+                rel: "noopener noreferrer",
+              })}
+            >
+              {link.label}
+            </a>
+          );
+        })}
       </nav>
 
       <InteractiveHoverButton

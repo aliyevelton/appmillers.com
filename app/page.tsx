@@ -12,8 +12,7 @@ const skoolClassroomUrl = "https://www.skool.com/ai-agents-automatin-vibecoding/
 
 const navLinks = [
   { label: "Courses", href: "#courses" },
-  { label: "Newsletter", href: "#" },
-  { label: "Udemy Coupons", href: "#" },
+  { label: "Newsletter", href: "https://elshadk.substack.com/" },
   { label: "Community", href: skoolCommunityUrl },
 ];
 
@@ -179,9 +178,21 @@ export default function Home() {
         <div className="footer-inner">
           <nav className="footer-links" aria-label="Footer">
             <a href="#top">Home</a>
-            {navLinks.map((link) => (
-              <a key={link.label} href={link.href}>{link.label}</a>
-            ))}
+            {navLinks.map((link) => {
+              const isExternal = link.href.startsWith("http");
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  {...(isExternal && {
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  })}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
           <p className="footer-copy">
             &copy; {new Date().getFullYear()} AppMillers. All rights reserved.
