@@ -2,6 +2,7 @@ import Image from "next/image";
 import RotatingHeadline from "../components/RotatingHeadline";
 import HeroCta from "../components/HeroCta";
 import Header from "../components/Header";
+import FloatingTechIcons from "../components/FloatingTechIcons";
 import InteractiveHoverButton from "../components/ui/interactive-hover-button";
 import CoursesSection from "../components/CoursesSection";
 import { BlurRise, BlurRiseList, BlurRiseItem } from "../components/BlurRise";
@@ -87,6 +88,7 @@ export default function Home() {
 
       <section className="hero-section">
         <div className="hero-background" />
+        <FloatingTechIcons />
 
         <div className="hero-headline">
           <BlurRise>

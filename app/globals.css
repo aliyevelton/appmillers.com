@@ -57,12 +57,12 @@ img {
 }
 
 .hero-section {
-  min-height: 100vh;
+  min-height: 75vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-top: 32px;
-  padding-bottom: 56px;
+  padding-bottom: 48px;
 }
 
 .hero-background {
@@ -209,7 +209,7 @@ img {
   z-index: 1;
   max-width: var(--max-width);
   margin: 0 auto;
-  margin-top: -100px;
+  margin-top: -60px;
   padding: 28px 24px 16px;
   text-align: center;
 }
@@ -254,6 +254,60 @@ img {
 
 .hero-sub .cta-row {
   margin-top: 24px;
+}
+
+/* Floating tech icons (hero) – theme uses --primary and --accent */
+.hero-section .floating-tech-icon {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-section .floating-tech-icon__circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(47, 107, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(47, 107, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 32px rgba(47, 107, 255, 0.2);
+}
+
+.hero-section .floating-tech-icon__img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.hero-section .floating-tech-icon__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .hero-section .floating-tech-icon__circle {
+    width: 56px;
+    height: 56px;
+  }
+
+  .hero-section .floating-tech-icon__img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hero-section .floating-tech-icon__label {
+    font-size: 10px;
+  }
 }
 
 .hero-card-block {
