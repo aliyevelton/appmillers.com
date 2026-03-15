@@ -2,19 +2,67 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
 export type FloatingTechIcon = {
   src: string;
   alt: string;
   label: string;
   position: { x: string; y: string };
+  /** On mobile (≤768px), use these positions instead so icons can sit above headline */
+  positionMobile?: { x: string; y: string };
 };
 
 const defaultIcons: FloatingTechIcon[] = [
-  { src: "./openai-transparent.png", alt: "OpenAI", label: "OpenAI", position: { x: "10%", y: "18%" } },
-  { src: "./crewai-transparent.png", alt: "CrewAI", label: "CrewAI", position: { x: "14%", y: "58%" } },
-  { src: "./langchain-transparent.png", alt: "LangChain", label: "LangChain", position: { x: "85%", y: "22%" } },
-  { src: "./n8n-transparent.png", alt: "n8n", label: "n8n", position: { x: "74%", y: "62%" } },
+  {
+    src: "/openai-transparent.png",
+    alt: "OpenAI",
+    label: "OpenAI",
+    position: { x: "10%", y: "18%" },
+    positionMobile: { x: "4%", y: "6%" },
+  },
+  {
+    src: "/crewai-transparent.png",
+    alt: "CrewAI",
+    label: "CrewAI",
+    position: { x: "14%", y: "50%" },
+    positionMobile: { x: "30%", y: "6%" },
+  },
+  {
+    src: "/langchain-transparent.png",
+    alt: "LangChain",
+    label: "LangChain",
+    position: { x: "85%", y: "22%" },
+    positionMobile: { x: "55%", y: "6%" },
+  },
+  {
+    src: "/n8n-transparent.png",
+    alt: "n8n",
+    label: "n8n",
+    position: { x: "75%", y: "75%" },
+    positionMobile: { x: "78%", y: "80%" },
+  },
+  {
+    src: "/Cursor.png",
+    alt: "Cursor",
+    label: "Cursor",
+    position: { x: "25%", y: "75%" },
+    positionMobile: { x: "12%", y: "80%" },
+  },
+  {
+    src: "/Claude.svg",
+    alt: "Claude Code",
+    label: "Claude Code",
+    position: { x: "80%", y: "50%" },
+    positionMobile: { x: "78%", y: "6%" },
+  },
+  {
+    src: "/openclaw.svg",
+    alt: "OpenClaw",
+    label: "OpenClaw",
+    position: { x: "50%", y: "75%" },
+    positionMobile: { x: "45%", y: "78%" },
+  },
 ];
 
 type FloatingTechIconsProps = {
@@ -23,15 +71,19 @@ type FloatingTechIconsProps = {
 };
 
 export default function FloatingTechIcons({ icons = defaultIcons, className = "" }: FloatingTechIconsProps) {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   return (
     <>
-      {icons.map((item, index) => (
+      {icons.map((item, index) => {
+        const pos = isMobile && item.positionMobile ? item.positionMobile : item.position;
+        return (
         <motion.div
           key={item.label}
           className={`floating-tech-icon ${className}`}
           style={{
-            left: item.position.x,
-            top: item.position.y,
+            left: pos.x,
+            top: pos.y,
           }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{
@@ -60,7 +112,8 @@ export default function FloatingTechIcons({ icons = defaultIcons, className = ""
           </div>
           <span className="floating-tech-icon__label">{item.label}</span>
         </motion.div>
-      ))}
+      );
+      })}
     </>
   );
 }

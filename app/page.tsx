@@ -8,12 +8,13 @@ import CoursesSection from "../components/CoursesSection";
 import { BlurRise, BlurRiseList, BlurRiseItem } from "../components/BlurRise";
 
 const skoolCommunityUrl = "https://www.skool.com/ai-agents-automatin-vibecoding";
+const skoolAboutUrl = "https://www.skool.com/ai-agents-automatin-vibecoding/about";
 const skoolClassroomUrl = "https://www.skool.com/ai-agents-automatin-vibecoding/classroom";
 
 const navLinks = [
   { label: "Courses", href: "#courses" },
   { label: "Newsletter", href: "https://elshadk.substack.com/" },
-  { label: "Community", href: skoolCommunityUrl },
+  { label: "Community", href: skoolAboutUrl },
 ];
 
 const courses = [
@@ -83,7 +84,7 @@ const featureCards = [
 export default function Home() {
   return (
     <main className="page-shell" id="top">
-      <Header navLinks={navLinks} skoolCommunityUrl={skoolCommunityUrl} />
+      <Header navLinks={navLinks} skoolCommunityUrl={skoolAboutUrl} />
 
       <section className="hero-section">
         <div className="hero-background" />
@@ -167,7 +168,7 @@ export default function Home() {
           <h2>Ready to start building?</h2>
 
           <div className="cta-row cta-row-center">
-            <a className="button button-primary" href={skoolCommunityUrl}>
+            <a className="button button-primary" href={skoolAboutUrl}>
               Join the Community
             </a>
           </div>
