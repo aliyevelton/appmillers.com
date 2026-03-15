@@ -5,17 +5,22 @@ import type { NextConfig } from "next";
 const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
 const isProjectSite =
   process.env.GITHUB_ACTIONS && repoName && !repoName.endsWith(".github.io");
-const basePath = isProjectSite ? `/${repoName}` : "";
+// Use BASE_PATH env for local production builds (e.g. BASE_PATH=/appmillers.com npm run build)
+const basePathFromEnv = process.env.BASE_PATH ?? "";
+const basePath = isProjectSite ? `/${repoName}` : basePathFromEnv;
 const assetPrefix =
   isProjectSite && process.env.GITHUB_REPOSITORY
     ? `https://${process.env.GITHUB_REPOSITORY.split("/")[0]}.github.io/${repoName}/`
-    : "";
+    : basePath ? `https://aliyevelton.github.io${basePath}/` : "";
 
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
   basePath: basePath || undefined,
   assetPrefix: assetPrefix || undefined,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath || "",
+  },
   // With basePath, Next still emits files at out/ root; use distDir so export lives under out/<repo> for GH Pages
   distDir: isProjectSite ? `out/${repoName}` : ".next",
   images: {

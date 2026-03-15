@@ -70,6 +70,8 @@ type FloatingTechIconsProps = {
   className?: string;
 };
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export default function FloatingTechIcons({ icons = defaultIcons, className = "" }: FloatingTechIconsProps) {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
@@ -77,6 +79,7 @@ export default function FloatingTechIcons({ icons = defaultIcons, className = ""
     <>
       {icons.map((item, index) => {
         const pos = isMobile && item.positionMobile ? item.positionMobile : item.position;
+        const imgSrc = `${basePath}${item.src}`;
         return (
         <motion.div
           key={item.label}
@@ -103,7 +106,7 @@ export default function FloatingTechIcons({ icons = defaultIcons, className = ""
         >
           <div className="floating-tech-icon__circle">
             <Image
-              src={item.src}
+              src={imgSrc}
               alt={item.alt}
               width={40}
               height={40}
